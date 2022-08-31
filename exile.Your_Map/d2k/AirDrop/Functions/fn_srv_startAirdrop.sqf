@@ -231,5 +231,5 @@ WaitUntil {((((position _object) select 2) < 1) || (isNil "_para"))};
 		_flare2= "F_40mm_Green" createVehicle getPos _object;
 		//_flare2 attachto [_object,[0,0,-0.5]];
 		sleep 5;
-		if (_DropType == "vehicle") then {_object allowDamage true;}; //Turn on damage for vehicles once they're on the ground.
+		if (_type == "vehicle") then {_object allowDamage true;}; //Turn on damage for vehicles once they're on the ground.
 		[_player, "toastRequest", ["SuccessTitleAndText", ["Air Drop", "Complete!"]]] call ExileServer_system_network_send_to;
