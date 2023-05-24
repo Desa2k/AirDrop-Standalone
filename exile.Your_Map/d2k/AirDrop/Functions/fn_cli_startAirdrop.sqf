@@ -44,6 +44,7 @@ if (APOC_AA_AdvancedBanking) then {
 		{
 			["ErrorTitleAndText",["Air Drop Error", format["You don't have enough money in your bank to request this airdrop!"]]] call ExileClient_gui_toaster_addTemplateToast;
 			playSound "FD_CP_Not_Clear_F";
+			breakOut "dk2_fnc_cli_startAirdrop";
 		};
 } else {
 	if (APOC_AA_UseExileLockerFunds) then {
@@ -52,6 +53,7 @@ if (APOC_AA_AdvancedBanking) then {
 			{
 				["ErrorTitleAndText",["Air Drop Error", format["You don't have enough money in your locker to request this airdrop!"]]] call ExileClient_gui_toaster_addTemplateToast;
 				playSound "FD_CP_Not_Clear_F";
+				breakOut "dk2_fnc_cli_startAirdrop";
 			};
 	} else {
 		_playerMoney = _player getVariable ["ExileMoney", 0];
@@ -59,10 +61,10 @@ if (APOC_AA_AdvancedBanking) then {
 			{
 				["ErrorTitleAndText",["Air Drop Error", format["You don't have enough money in your wallet to request this airdrop!"]]] call ExileClient_gui_toaster_addTemplateToast;
 				playSound "FD_CP_Not_Clear_F";
+				breakOut "dk2_fnc_cli_startAirdrop";
 			};
 	};
 };
-
 
 		
 _confirmMsg = format ["This airdrop will deduct $%1 from your bank account upon delivery<br/>",_price];
